@@ -1,0 +1,88 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<div class="nav_class f_l">
+<div class="w">
+    <div class=" f_l">
+    <span class="nides"><a href="">收藏本站</a></span>
+    <span>关注我们：</span>
+    <span><a href=""><img src="../images/weiboweibo.png"/></a></span>
+    <span><a href=""><img src="../images/ruihuakangyuanweixin.png"/></a></span>
+    <span><a href=""><img src="../images/huakangyiyaop.png"/></a></span>
+    <span>您好，欢迎来到瑞华康源！</span>
+    </div>
+    <div class="f_r">
+    <span class="asasa"><a href="user.php">登录</a></span>
+    <span class="asasa"><a href="user.php?act=register">注册</a></span>
+    <span class="asasa"><a href="user.php">我的账户</a></span>
+    <span class="asasa"><a href="user.php">会员专区</a></span>
+    <span class="asasa"><a href="../article.php?id=7">帮助中心</a></span>
+    <span><a href="../article.php?id=2">4000691112</a></span>
+    </div>
+</div>
+</div>
+
+
+
+
+<div class="block clearfix padding-ds">
+<div class="w">
+ <div class="f_l"><a href="../index.php" name="top"><img style="width:200px;height:80px;" src="../images/logo.gif" /></a></div>
+
+<!--search start-->
+<div class="f_l log clearfix"  id="search">
+    <div class="keys f_l">
+   <script type="text/javascript">
+    {literal}
+    <!--
+    function checkSearchForm()
+    {
+        if(document.getElementById('keyword').value)
+        {
+            return true;
+        }
+        else
+        {
+            alert("{$lang.no_keywords}");
+            return false;
+        }
+    }
+    -->
+    {/literal}
+    </script>
+    {if $searchkeywords}
+   {$lang.hot_search} ：
+   {foreach from=$searchkeywords item=val}
+   <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+   {/foreach}
+   {/if}
+  </div>
+   <form id="searchForm form_search" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()" class="f_l"  style="_position:relative; top:5px;">   
+        <input name="keywords" type="text" id="keyword" style="width:340px;height:36px;" value="&nbsp;{$search_keywords|escape}" class="B_input" /><input name="imageField" type="submit" value="搜索" class="go" style="cursor:pointer;" />
+   </form>
+
+ </div>
+
+<!-- TemplateBeginEditable name="左边区域" -->
+<!-- #BeginLibraryItem "/library/cart.lbi" -->
+
+{insert_scripts files='transport.js'}
+<div class="cart f_r" id="ECS_CARTINFO">
+ {insert name='cart_info'}
+</div>
+<div class="blank5"></div>
+</div>
+</div>
+<!--search end-->
+
+<div  class="blank"></div>
+<div id="mainNav" class="clearfix">
+    <div class="w">
+        <a href="../index.php" class="cur" >全部商品分类 </a>
+        <a href="../index.php"{if $navigator_list.config.index eq 1} class="cur"{/if}>{$lang.home}</a>
+        <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+        <a href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if} {if $nav.active eq 1} class="cur"{/if}>{$nav.name}</a>
+        <!-- {/foreach} -->
+    </div>
+</div>
